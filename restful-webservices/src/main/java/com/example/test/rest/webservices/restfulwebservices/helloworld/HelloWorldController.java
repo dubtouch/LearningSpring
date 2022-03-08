@@ -1,5 +1,6 @@
-package com.example.test.rest.webservices.restfulwebservices;
+package com.example.test.rest.webservices.restfulwebservices.helloworld;
 
+import com.example.test.rest.webservices.restfulwebservices.helloworld.HelloWorldBean;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
