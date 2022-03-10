@@ -2,11 +2,18 @@ package dub.dubtouch.restdemo.user;
 
 import org.springframework.hateoas.RepresentationModel;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+
+@Entity
 public class User extends RepresentationModel<User> {
+    @Id
+    @GeneratedValue
     private Integer id;
     @Size(min=2, message = "name should have at lease 2 characters")
     private String name;
