@@ -28,18 +28,17 @@ public class UserResource {
     }
 
     @GetMapping("users/{id}")
-    public User retrieveUserById(@PathVariable int id) {
+    public EntityModel retrieveUserById(@PathVariable int id) {
         User user = service.findOne(id);
 
 
         if (user == null) {
             throw new UserNotFoundException("id - " + id);
         }
+        EntityModel entityModel = EntityModel.of(user, linkTo(methodOn(this.getClass()).retrieveAllUsers()).withRel("all users"));
 
-        Link link = linkTo(methodOn(this.getClass()).retrieveAllUsers()).withRel("all users");
-        user.add(link);
 
-        return user;
+        return entityModel;
 
     }
 
