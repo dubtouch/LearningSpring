@@ -1,5 +1,6 @@
-package dub.dubtouch.restdemo;
+package dub.dubtouch.restdemo.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dub.dubtouch.restdemo.user.User;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class Post {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private User user;
 
     @Override
@@ -24,6 +26,7 @@ public class Post {
                 '}';
     }
 
+    public Post() {}
     public Integer getId() {
         return id;
     }
@@ -48,11 +51,7 @@ public class Post {
         this.user = user;
     }
 
-    public Post(Integer id, String description, User user) {
-        this.id = id;
-        this.description = description;
-        this.user = user;
-    }
+
 
 
 }
