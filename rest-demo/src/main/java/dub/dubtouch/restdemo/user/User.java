@@ -1,5 +1,6 @@
 package dub.dubtouch.restdemo.user;
 
+import dub.dubtouch.restdemo.Post;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -19,6 +21,8 @@ public class User extends RepresentationModel<User> {
     private String name;
     @Past
     private Date birthdate;
+
+    private List<Post> posts;
 
     @Override
     public String toString() {
