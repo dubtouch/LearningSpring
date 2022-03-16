@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS purchase (
-id INT AUTO_INCREMENT PRIMARY KEY,
+id int PRIMARY KEY,
 product varchar(50) NOT NULL,
-price double NOT NULL
+price double precision NOT NULL
 );
